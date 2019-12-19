@@ -1,0 +1,6 @@
+package org.ygq.cloud;
+
+@SpringBoot
+public class ServerApp {
+
+}

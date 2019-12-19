@@ -1,0 +1,12 @@
+package com.could.fegin;
+
+import org.springframework.web.bind.annotation.PathVariable;
+
+@MyService("first-police")
+public interface TestService{
+    @MyMethod("hello")
+    public String hello();
+    
+    @MyMethod("call")
+    public Police call(@PathVariable("id") Integer id);
+}

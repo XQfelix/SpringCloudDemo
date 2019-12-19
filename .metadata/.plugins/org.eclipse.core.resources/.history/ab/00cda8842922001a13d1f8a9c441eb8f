@@ -1,0 +1,11 @@
+package com.could.fegin;
+
+public class ClientMain {
+	 public static void main(String[] args)
+	    {       
+	        TestService service=MyEurekaFactory.gi().createService(TestService.class);
+	        MyValue value=service.hello("joy", 8);
+	        System.out.println(value.getName()+","+value.getValue());
+
+	    }
+}

@@ -1,0 +1,10 @@
+package com.could.fegin;
+
+
+
+@MyService("TestService")
+public interface TestService
+{
+    @MyMethod("execute")
+    public MyValue execute(String name,Integer value);
+}

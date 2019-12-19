@@ -1,0 +1,5 @@
+eureka.region=default
+eureka.name=sampleEurekaClient
+eureka.preferSameZone=true
+eureka.shouldUseDns=false
+eureka.serviceUrl.default=http://localhost:1111/eureka/

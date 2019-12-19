@@ -1,0 +1,3 @@
+spring.application.name=first-police
+management.endpoints.web.cors.allowed-headers=false
+eureka.client.service-url.defaultZone=http://127.0.0.1:8000/eureka/

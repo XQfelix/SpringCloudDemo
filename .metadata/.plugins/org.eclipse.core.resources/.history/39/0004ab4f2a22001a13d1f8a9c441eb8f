@@ -1,0 +1,46 @@
+package com.could.fegin.two;
+
+
+/**
+ * Thrown when an application attempts to use {@code null} in a
+ * case where an Eureka Client is required. These include:
+ * <ul>
+ * <li>Calling the instance method of a {@code null} Eureka Client Service.
+ * <li>The eureka Client Service is not started.
+ * <li>The eureka Client Service is offline or stopped.
+ * </ul>
+ * <p>
+ * Applications should throw instances of this class to indicate
+ * other illegal uses of the {@code null} Eureka Client.
+ *
+ * {@code EurekaClientNotExistsException} objects may be constructed by the
+ * virtual machine as if {@linkplain Throwable#Throwable(String,
+ * Throwable, boolean, boolean) suppression were disabled and/or the
+ * stack trace was not writable}.
+ *
+ * 微服务未启动或不存在的异常
+ *
+ * @author  yangzj
+ * @since   JDK1.0
+ * @create 2019-01-18 13:57
+ */
+public class EurekaClientNotExistsException extends RuntimeException {
+ 
+    /**
+     * Constructs a {@code EurekaClientNotExistsException} with no detail message.
+     */
+    public EurekaClientNotExistsException() {
+        super();
+    }
+ 
+    /**
+     * Constructs a {@code EurekaClientNotExistsException} with the specified
+     * detail message.
+     *
+     * @param   s   the detail message.
+     */
+    public EurekaClientNotExistsException(String s) {
+        super(s);
+    }
+ 
+}

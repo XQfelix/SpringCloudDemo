@@ -1,0 +1,39 @@
+package org.ygq.clou;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class PoliceController {
+	
+	@RequestMapping(value="/call/{id}", method=RequestMethod.GET, 
+			produces=MediaType.APPLICATION_JSON_VALUE)
+	public Police call(@PathVariable Integer id, HttpServletRequest req) {
+		Police p = new Police();
+		p.setId(id);
+		p.setName("mike");
+		p.setMessage(req.getRequestURL().toString());
+		return p;
+	}
+	
+	
+	@RequestMapping(value="/call", method=RequestMethod.GET, 
+			produces=MediaType.APPLICATION_JSON_VALUE)
+	public Police call2(@PathVariable Integer id, HttpServletRequest req) {
+		Police p = new Police();
+		p.setId(id);
+		p.setName("mike");
+		p.setMessage(req.getRequestURL().toString());
+		return p;
+	}
+	
+	@RequestMapping(value = "/hello")
+	public String hello() {
+		return "hello world";
+	}
+}

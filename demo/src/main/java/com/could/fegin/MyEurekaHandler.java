@@ -1,0 +1,139 @@
+package com.could.fegin;
+
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Method;
+import java.lang.reflect.Parameter;
+import java.lang.reflect.Proxy;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.core.DefaultParameterNameDiscoverer;
+import org.springframework.core.ParameterNameDiscoverer;
+
+/**
+ * 利用动态代理封装了接口的远程调用。
+ */
+public class MyEurekaHandler implements InvocationHandler {
+
+	private static final Logger logger = LoggerFactory.getLogger(MyEurekaHandler.class);
+
+	/**
+	 * 代理的目标接口类
+	 */
+	private Class<?> target;
+
+	/**
+	 * Eureka中定义的Service的名称
+	 */
+	private String serviceName;
+
+	private MyEurekaClient client;
+
+	MyEurekaHandler(MyEurekaClient client) {
+		this.client = client;
+	}
+
+	@SuppressWarnings("unchecked")
+	public <T> T create(Class<T> target) {
+		this.target = target;
+		MyService s = target.getAnnotation(MyService.class);
+		if (s != null) {
+			serviceName = s.value().toUpperCase();
+			return (T) Proxy.newProxyInstance(this.getClass().getClassLoader(), new Class<?>[] { target }, this);
+		} else {
+			logger.error(target.getName() + ",没有定义 @MyService！");
+			return null;
+		}
+	}
+
+	/**
+	 * 获取服务的名称
+	 * 
+	 * @return
+	 */
+	public String getService() {
+		return this.serviceName;
+	}
+
+	/**
+	 * 函数的实现内容，可以使用用其他的方式实现，例如通信等。
+	 * 
+	 */
+	@Override
+	public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+		MyMethod m = method.getAnnotation(MyMethod.class);
+		Class<?> returnClaz = method.getReturnType();
+		if (m == null) {
+			logger.error(target.getName() + "." + method.getName() + ",没有定义 @MyMethod！");
+			return null;
+		} else {
+			// 拼接URL
+			StringBuilder builder = new StringBuilder(m.value());
+
+			String url = parseBySpring(method, args);
+			if (url != null) {
+				builder.append("?");
+				builder.append(url);
+			}
+
+			return client.request(serviceName, builder.toString(), returnClaz);
+		}
+	}
+
+	/**
+	 * Java8是可以通过类文件获取参数的名称，但是需要在编译的时候进行参数设置。
+	 * 
+	 * @param method
+	 * @param args
+	 * @return
+	 */
+	protected String parseByJava8(Method method, Object[] args) {
+		StringBuilder builder = new StringBuilder();
+		Parameter[] params = method.getParameters();
+		int length = params.length;
+		for (int i = 0; i < length; i++) {
+			Parameter p = params[i];
+			Object value = args[i];
+			if (i > 0) {
+				builder.append("&");
+			}
+
+			builder.append(p.getName());
+			builder.append("=");
+			builder.append(value);
+		}
+		return builder.toString();
+	}
+
+	/**
+	 * 
+	 * @param method
+	 * @param args
+	 * @return
+	 */
+	protected String parseBySpring(Method method, Object[] args) {
+		StringBuilder builder = new StringBuilder();
+		// 以下这种获取参数名称的解析，需要在编译的时候设置一下。见图
+		ParameterNameDiscoverer parameterNameDiscoverer = new DefaultParameterNameDiscoverer();
+		// new LocalVariableTableParameterNameDiscoverer(); 这个不知道为什么不好使？ASM5以上。设置都是OK的
+		try {
+			System.out.println(method.getName());
+
+			String[] parameterNames = parameterNameDiscoverer.getParameterNames(method);
+			for (int i = 0; i < args.length; i++) {
+				if (i > 0) {
+					builder.append("&");
+				}
+
+				builder.append(parameterNames[i]);
+				builder.append("=");
+				builder.append(args[i]);
+			}
+			return builder.toString();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+}

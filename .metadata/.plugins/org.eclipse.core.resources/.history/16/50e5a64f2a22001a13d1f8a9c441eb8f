@@ -1,0 +1,32 @@
+package com.could.fegin.two;
+
+
+import java.util.List;
+ 
+/**
+ * @author yangzj
+ * @desc Eureka中的微服务实体信息
+ * @create 2019-06-17 11:34
+ **/
+public class EurekaApplication {
+ 
+    private String name;
+    private List<EurekaApplicationInstance> instances;
+ 
+    public String getName() {
+        return name;
+    }
+ 
+    public void setName(String name) {
+        this.name = name;
+    }
+ 
+    public List<EurekaApplicationInstance> getInstances() {
+        return instances;
+    }
+ 
+    public void setInstances(List<EurekaApplicationInstance> instances) {
+        this.instances = instances;
+    }
+ 
+}

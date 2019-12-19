@@ -1,0 +1,22 @@
+package com.could.fegin;
+
+public class ClientMain {
+	 public static void main(String[] args) throws InterruptedException {       
+	        TestService service=MyEurekaFactory.gi().createService(TestService.class);
+	        String value=service.hello();
+	        System.out.println("--------------" + value);
+	        
+	        Police po = service.call2(1);
+	        System.out.println("--------------" + po.getName() + "--" + po.getId() + "---" + po.getMessage());
+	        Thread.sleep(3000);
+	        
+	        Police po1 = service.call2(1);
+	        System.out.println("--------------" + po1.getName() + "--" + po1.getId() + "---" + po1.getMessage());
+	        
+	        Thread.sleep(3000);
+	        Police po3 = service.call2(1);
+	        System.out.println("--------------" + po3.getName() + "--" + po3.getId() + "---" + po3.getMessage());
+	        
+
+	    }
+}
