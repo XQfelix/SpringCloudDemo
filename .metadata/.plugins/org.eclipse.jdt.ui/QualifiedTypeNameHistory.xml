@@ -23,7 +23,6 @@
 <fullyQualifiedTypeName name="org.springframework.cloud.netflix.feign.FeignClient"/>
 <fullyQualifiedTypeName name="org.springframework.util.StringUtils"/>
 <fullyQualifiedTypeName name="org.apache.logging.log4j.Logger"/>
-<fullyQualifiedTypeName name="java.lang.Thread"/>
 <fullyQualifiedTypeName name="com.netflix.discovery.DiscoveryManager"/>
 <fullyQualifiedTypeName name="com.netflix.appinfo.ApplicationInfoManager"/>
 <fullyQualifiedTypeName name="com.netflix.appinfo.MyDataCenterInstanceConfig"/>
@@ -35,4 +34,7 @@
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="com.netflix.appinfo.InstanceInfo.InstanceStatus"/>
 <fullyQualifiedTypeName name="java.util.Random"/>
+<fullyQualifiedTypeName name="org.springframework.context.ConfigurableApplicationContext"/>
+<fullyQualifiedTypeName name="org.springframework.boot.WebApplicationType"/>
+<fullyQualifiedTypeName name="java.lang.Thread"/>
 </qualifiedTypeNameHistroy>

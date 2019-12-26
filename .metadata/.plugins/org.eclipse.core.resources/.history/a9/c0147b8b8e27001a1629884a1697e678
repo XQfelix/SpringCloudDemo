@@ -1,0 +1,60 @@
+package com.noWebSpring;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.WebApplicationType;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+@SpringBootApplication
+@EnableFeignClients
+public class NoWebSpringApplication{
+
+//	public static void main(String[] args) {
+//		SpringApplication.run(NoWebSpringApplication.class, args);
+//	}
+	public static void main(String[] args) throws InterruptedException {
+      
+      SpringApplication app = new SpringApplication(NoWebSpringApplication.class);
+      app.setWebApplicationType(WebApplicationType.NONE);
+      ConfigurableApplicationContext appContext = app.run(args);
+      NoWebSpringApplication mainAPP = appContext.getBean(NoWebSpringApplication.class);
+      mainAPP.callRoute();
+      
+      Thread.sleep(2000);
+      
+      mainAPP.callRoute();
+      
+      Thread.sleep(2000);
+      
+      mainAPP.callRoute();
+      
+      Thread.sleep(2000);
+      
+      mainAPP.callRoute();
+      
+}
+	
+	
+	/**feign**/
+	@Autowired
+	private HelloClient hClient;
+	
+	
+	public void String route() {
+		String result = hClient.hi();
+		System.out.println("------------" + result);
+//		return result;
+	}
+	
+	public void Police callRoute() {
+		Police result = hClient.call(1);
+		System.out.println("------------" + result.getId()+"-----" + result.getName()+"------" + result.getMessage());
+//		return result;
+	}
+
+}

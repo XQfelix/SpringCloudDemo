@@ -9,6 +9,100 @@
 	<atom:link rel="self" href="http://planeteclipse.org/rss20.xml" type="application/rss+xml"/>
 
 <item>
+	<title>Jens Reimann: An update on Eclipse IoT Packages</title>
+	<guid isPermaLink="false">https://dentrassi.de/?p=4373</guid>
+	<link>https://dentrassi.de/2019/12/19/update-on-eclipse-iot-packages/</link>
+	<description>&lt;p&gt;A lot has happened, since &lt;a href=&quot;https://dentrassi.de/2019/09/10/from-building-blocks-to-iot-solutions/&quot; rel=&quot;noreferrer noopener&quot; target=&quot;_blank&quot;&gt;I wrote last about the Eclipse IoT Packages project&lt;/a&gt;. We had some great discussions at &lt;a href=&quot;https://www.eclipsecon.org/europe2019&quot; rel=&quot;noreferrer noopener&quot; target=&quot;_blank&quot;&gt;EclipseCon Europe&lt;/a&gt;, and started to work together online, having new ideas in the progress. Right before the end of the year, I think it is a good time to give an update, and peek a bit into the future.&lt;/p&gt;
+
+
+
+&lt;h2&gt;Homepage&lt;/h2&gt;
+
+
+
+&lt;p&gt;One of the first things we wanted to get started, was a home for the content we plan on creating. An important piece of the puzzle is to explain to people, what we have in mind. Not only for people that want to try out the various Eclipse IoT projects, but also to possible contributors. And in the end, an important goal of the project is to attract interested parties. For consuming our ideas, or growing them even further.&lt;/p&gt;
+
+
+
+&lt;div class=&quot;wp-block-image&quot;&gt;&lt;figure class=&quot;aligncenter is-resized&quot;&gt;&lt;img alt=&quot;Eclipse IoT Packages logo&quot; class=&quot;wp-image-4377&quot; height=&quot;192&quot; src=&quot;https://dentrassi.de/wp-content/uploads/logo.svg&quot; width=&quot;453&quot; /&gt;&lt;/figure&gt;&lt;/div&gt;
+
+
+
+&lt;p&gt;So we now have a logo, &lt;a href=&quot;https://www.eclipse.org/packages/&quot; rel=&quot;noreferrer noopener&quot; target=&quot;_blank&quot;&gt;a homepage&lt;/a&gt;, built using using templates in a continuous build system. We are in a position to start focusing on the actual content, and on the more tricky tasks and questions ahead. And should you want to create a PR for the homepage, you are more than welcome. There is also already some content, explaining the main goals, the way we want to move forward, and demo of a first package: “Package Zero”.&lt;/p&gt;
+
+
+
+&lt;h2&gt;Community&lt;/h2&gt;
+
+
+
+&lt;p&gt;While the homepage is a good entry point for people to learn about Eclipse IoT and packages, &lt;a href=&quot;https://github.com/eclipse/packages/&quot; rel=&quot;noreferrer noopener&quot; target=&quot;_blank&quot;&gt;our GitHub repository&lt;/a&gt; is the home for the community. And having some great discussions on GitHub, quickly brought up the need for &lt;a href=&quot;https://github.com/eclipse/packages/issues/4&quot; rel=&quot;noreferrer noopener&quot; target=&quot;_blank&quot;&gt;a community call&lt;/a&gt; and &lt;a href=&quot;https://github.com/eclipse/packages/issues/6&quot; rel=&quot;noreferrer noopener&quot; target=&quot;_blank&quot;&gt;a more direct communication channel&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;p&gt;If you are interested in the project, come and join &lt;a href=&quot;https://www.eclipse.org/packages/contribute/#join-the-community-call&quot; rel=&quot;noreferrer noopener&quot; target=&quot;_blank&quot;&gt;our bi-weekly community call&lt;/a&gt;. It is a quick, 30 minutes call at 16:00 CET, and open to everyone. Repeating every two weeks, starting 2019-12-02.&lt;/p&gt;
+
+
+
+&lt;p&gt;The URL to the call is: &lt;a href=&quot;https://eclipse.zoom.us/j/317801130&quot; rel=&quot;noreferrer noopener&quot; target=&quot;_blank&quot;&gt;https://eclipse.zoom.us/j/317801130&lt;/a&gt;. You can also subscribe to the &lt;a href=&quot;https://calendar.google.com/calendar/ical/lu98p1vc1ed4itl7n9qno3oogc%40group.calendar.google.com/public/basic.ics&quot;&gt;community calendar&lt;/a&gt; to get a reminder.&lt;/p&gt;
+
+
+
+&lt;p&gt;In between calls, we have a chat room &lt;a href=&quot;https://gitter.im/eclipse/packages&quot; rel=&quot;noreferrer noopener&quot; target=&quot;_blank&quot;&gt;eclipse/packages&lt;/a&gt; on Gitter.&lt;/p&gt;
+
+
+
+&lt;h2&gt;Eclipse IoT Helm Chart Repository&lt;/h2&gt;
+
+
+
+&lt;p&gt;One of the earliest discussion we had, was around the question of how and were we want to host the Helm charts. We would prefer not to author them ourselves, but let the projects contribute them. After all, the IoT packages project has the goal of enabling you to install a whole set of Eclipse IoT projects, with only a few commands. So the focus is on the integration, and the expert knowledge required for creating project Helm chart, is in the actual projects.&lt;/p&gt;
+
+
+
+&lt;p&gt;On the other side, having a one-stop shop, for getting your Eclipse IoT Helm charts, sounds pretty convenient. So why not host our own Helm chart repository?&lt;/p&gt;
+
+
+
+&lt;p&gt;Thanks to a company called &lt;a href=&quot;https://github.com/kiwigrid/helm-charts&quot; rel=&quot;noreferrer noopener&quot; target=&quot;_blank&quot;&gt;Kiwigrid&lt;/a&gt;, who contributed a CI pipeline for validating charts, we could easily extend our existing homepage publishing job, to also publish Helm charts. As a first chart, we published the &lt;a href=&quot;https://www.eclipse.org/ditto/&quot; rel=&quot;noreferrer noopener&quot; target=&quot;_blank&quot;&gt;Eclipse Ditto&lt;/a&gt; chart. And, as expected with Helm, installing it is as easy as:&lt;/p&gt;
+
+
+
+&lt;div class=&quot;wp-block-columns&quot;&gt;
+&lt;div class=&quot;wp-block-column&quot;&gt;
+&lt;figure class=&quot;wp-block-image size-large&quot;&gt;&lt;a href=&quot;https://dentrassi.de/wp-content/uploads/h1.png&quot;&gt;&lt;img alt=&quot;&quot; class=&quot;wp-image-4387&quot; src=&quot;https://dentrassi.de/wp-content/uploads/h1-1024x427.png&quot; /&gt;&lt;/a&gt;&lt;/figure&gt;
+&lt;/div&gt;
+
+
+
+&lt;div class=&quot;wp-block-column&quot;&gt;
+&lt;figure class=&quot;wp-block-image size-large&quot;&gt;&lt;a href=&quot;https://dentrassi.de/wp-content/uploads/h2.png&quot;&gt;&lt;img alt=&quot;&quot; class=&quot;wp-image-4388&quot; src=&quot;https://dentrassi.de/wp-content/uploads/h2-1024x427.png&quot; /&gt;&lt;/a&gt;&lt;/figure&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+
+
+&lt;p&gt;Of course having a single chart is only the first step. Publishing a single Helm charts isn’t that impressive. But getting an agreement on the community, getting the validation and publishing pipeline set up, attracting new contributors, that is definitely a big step in the right direction.&lt;/p&gt;
+
+
+
+&lt;h2&gt;Outlook&lt;/h2&gt;
+
+
+
+&lt;p&gt;I think that we now have a good foundation, for moving forward. We have a place called “home”, for documentation, code and community. And it looks like we have also been able to attract more people to the project.&lt;/p&gt;
+
+
+
+&lt;p&gt;While our first package, “Package Zero”, still isn’t complete, it should be pretty close. Creating a first, joint deployment of Hono and Ditto is our immediate focus. And we will continue to work towards a first release of “Package Zero”. Finding a better name is still an item on the list.&lt;/p&gt;
+
+
+
+&lt;p&gt;Having this foundation in place also means, that the time is right, for you to think about contributing your own Eclipse IoT Package. Contributions are always welcome.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href=&quot;https://dentrassi.de/2019/12/19/update-on-eclipse-iot-packages/&quot; rel=&quot;nofollow&quot;&gt;An update on Eclipse IoT Packages&lt;/a&gt; appeared first on &lt;a href=&quot;https://dentrassi.de&quot; rel=&quot;nofollow&quot;&gt;ctron's blog&lt;/a&gt;.&lt;/p&gt;</description>
+	<pubDate>Thu, 19 Dec 2019 12:17:44 +0000</pubDate>
+</item>
+<item>
 	<title>Webtools News: WTP 3.16 Released!</title>
 	<guid isPermaLink="false">http://www.eclipse.org/webtools/news.php#permalink190</guid>
 	<link>http://eclipse.org/webtools/releases/3.16</link>
@@ -2083,13 +2177,6 @@ You can &lt;a href=&quot;https://news.obeo.fr/en/post/world-cleanup-day-obeo-sup
 	<description>It's been 5 years since I last blogged, so I had to delete 500 SPAM  posts when getting started again.  Much has happened over the past  years, some of them not so great. When you start to get old like me, you  must deal with the older generation gradually passing on and health  problems, such as coronary re-plumbing, can become an ugly fact of life.&lt;br /&gt;&lt;br /&gt;&lt;div class=&quot;separator&quot; style=&quot;clear: both; text-align: center;&quot;&gt;&lt;a href=&quot;https://1.bp.blogspot.com/-0M3QCRwIRRU/XWeKYT-JIII/AAAAAAAACrw/zhLs6JHOI_QXkVGpXNRHjSeWIpj_ZszNwCLcBGAs/s1600/OldShip.png&quot; style=&quot;margin-left: 1em; margin-right: 1em;&quot;&gt;&lt;img border=&quot;0&quot; height=&quot;180&quot; src=&quot;https://1.bp.blogspot.com/-0M3QCRwIRRU/XWeKYT-JIII/AAAAAAAACrw/zhLs6JHOI_QXkVGpXNRHjSeWIpj_ZszNwCLcBGAs/s320/OldShip.png&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;br /&gt;I've been working with itemis for the past 11 years, but that now  draws to a close.  I wish to thank them for their generous support over  all these years.  Many of you might thank them as well because much of  what I've contributed is thanks to their funding.  Though admittedly I  have the nasty habit of working like a maniac, beyond any reasonable  number of working hours, regardless of whether or not there is financial  reward.  Cool things are just so compelling. But the worst habit then  is not bothering to document or advertise all these cool new features as  they become available, but rather to dive into the next obsession  because somehow that's more compelling.  Compulsion is a bit of a Merks'  family trait, e.g., my sister has more than 20 dogs, though it's easy  to lose count...&lt;br /&gt;&lt;br /&gt;In any case, most of my obsession over the last year has been related  to working with Airbus.  I don't normally talk about my customers, but  given they were gracious enough to allow me to demo at last year's  EclipseCon the software being developed at Airbus, it's common knowledge  anyway.  My goodness but that was a creative and cool project!  Unfortunately that too has, as is the case for all good things, come  to an end.&lt;br /&gt;&lt;br /&gt;I immediately dove into generating a quality report for the Eclipse  SimRel p2 repository; there's no rest for the wicked nor for the  compelled.  I used EMF's Java Emitter Templates (JET) for implementing  that, just as I did for generating the full site information for  &lt;a href=&quot;https://download.eclipse.org/modeling/emf/emf/builds/index.html&quot;&gt;EMF's Update Sites&lt;/a&gt;  as part of migrating the build to Maven/Tycho.&lt;br /&gt;&lt;br /&gt;Speaking of which, did you know that you can make it trivially easy for your contributors to set up a development environment? Just have a look at &lt;a href=&quot;https://ci.eclipse.org/emf/&quot;&gt;EMF' build page&lt;/a&gt;.  Also, did you know that there exists such a thing for the complete &lt;a href=&quot;https://wiki.eclipse.org/Eclipse_Platform_SDK_Provisioning&quot;&gt;Eclipse Platform SDK&lt;/a&gt; as well? Of course not, because I never bothered to tell you!&lt;br /&gt;&lt;br /&gt;What's really supergeil (yes, I live in Germany and speak fluent  Denglish) about the installing an environment with the full Platform  SDK, or some subset there of, is that you can easily see all the Git  history of each source file, so you can see what exactly has changed and  evolved.  Also, when developing new applications, you can easily search  for how the Platform implements those things; then you can snarf and  barf out your own solutions, with all due respect for the EPL of  course.  You can even find out all the places that a constant is  actually used; you cannot do that against binaries because constants get  in-lined.  Also, if you see some label in the IDE, you can search for  where it comes from, some *.properties file somewhere no doubt, and then  you will know the name of that property and can easily find where  that's defined and how that's used in the code.  You might even  contribute fixes via Gerrit commits!&lt;br /&gt;&lt;br /&gt;But I digress.  I was using JET to generate a nice helpful web page  with information about all the problems in the SimRel repo, or in any  arbitrary repo actually, i.e., invalid licenses, unsigned content,  missing pack200 files, duplicate bundles, inappropriate providers, and  so on. But then I got frustrated that JET templates eventually get  really hard to read, especially as they become more complicated.  Then,  when you need it the most, all the nice features of JDT are missing  while editing the scriplets and expressions in that template. So as I am  wont to do, I digressed further and spent the better part of the last  two months working on a rich editor for JET.  I'm sorry (not!) that I  had to violate a few API rules to do so, but alas, API rights activists  is a topic for another blog because that's a long digression.  The good thing is that the JET editor is finished now; it will be in  2019-09's M3.  Here's a sneak preview:&lt;br /&gt;&lt;br /&gt;&lt;div class=&quot;separator&quot; style=&quot;clear: both; text-align: center;&quot;&gt;&lt;a href=&quot;https://1.bp.blogspot.com/-zbHtviZ7w7c/XWeOuCKpj8I/AAAAAAAACr8/BwnJL3B9rdM4kFSLl--Z7wojabe5T9OvQCLcBGAs/s1600/JETEditor.png&quot; style=&quot;margin-left: 1em; margin-right: 1em;&quot;&gt;&lt;img border=&quot;0&quot; height=&quot;231&quot; src=&quot;https://1.bp.blogspot.com/-zbHtviZ7w7c/XWeOuCKpj8I/AAAAAAAACr8/BwnJL3B9rdM4kFSLl--Z7wojabe5T9OvQCLcBGAs/s320/JETEditor.png&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;br /&gt;Yes, that's content assist, just is if were in a real Java editor! Not only that, this time I wrote documentation for it in EMF's doc bundle. And, to top that off with icing, this time I blog  about it.  Perhaps only three people in the world will ever use it, but  I am one of those three people and I love it and I need it even for  working with EMF's code generation templates too. So now I can pop this off  my digression stack and go back to generating that p2 repo quality  report.  I've been doing that for the past week, and it's almost ready  for prime-time.&lt;br /&gt;&lt;br /&gt;But then at this point, I must ask myself, where is the financial gain  in all this?  My local neighborhood fox, I've named him Fergus,  might  be trying to tell me something.&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;div class=&quot;separator&quot; style=&quot;clear: both; text-align: center;&quot;&gt;&lt;a href=&quot;https://1.bp.blogspot.com/-8Rd65OT-GrM/XWeQ1fQPPjI/AAAAAAAACsI/7oRwuFKL9BcDM0ahSr-DGyTKWKuxLRT2QCLcBGAs/s1600/Fergus.png&quot; style=&quot;margin-left: 1em; margin-right: 1em;&quot;&gt;&lt;img border=&quot;0&quot; height=&quot;320&quot; src=&quot;https://1.bp.blogspot.com/-8Rd65OT-GrM/XWeQ1fQPPjI/AAAAAAAACsI/7oRwuFKL9BcDM0ahSr-DGyTKWKuxLRT2QCLcBGAs/s320/Fergus.png&quot; width=&quot;197&quot; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;br /&gt;Perhaps you should be a little more sly.  Perhaps the endless free goodness too must come to an end...</description>
 	<pubDate>Thu, 29 Aug 2019 09:23:18 +0000</pubDate>
 	<author>noreply@blogger.com (Ed Merks)</author>
-</item>
-<item>
-	<title>Mat Booth: Eclipse is Now a Module on Fedora 30</title>
-	<guid isPermaLink="false">tag:blog.matbooth.co.uk,2019-08-21:/09-eclipse-module-f30.html/</guid>
-	<link>http://blog.matbooth.co.uk/09-eclipse-module-f30.html</link>
-	<description>&lt;p&gt;How to install the Eclipse IDE module on Fedora 30!&lt;/p&gt;</description>
-	<pubDate>Wed, 21 Aug 2019 13:30:00 +0000</pubDate>
 </item>
 
 </channel>

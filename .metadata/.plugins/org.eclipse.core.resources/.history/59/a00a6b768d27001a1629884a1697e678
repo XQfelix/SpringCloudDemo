@@ -1,0 +1,46 @@
+package com.noWebSpring;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.WebApplicationType;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+@SpringBootApplication
+@EnableFeignClients
+public class NoWebSpringApplication{
+
+//	public static void main(String[] args) {
+//		SpringApplication.run(NoWebSpringApplication.class, args);
+//	}
+	public static void main(String[] args) {
+      
+      SpringApplication app = new SpringApplication(NoWebSpringApplication.class);
+      app.setWebApplicationType(WebApplicationType.NONE);
+      ConfigurableApplicationContext appContext = app.run(args);
+      NoWebSpringApplication mainAPP = appContext.getBean(NoWebSpringApplication.class);
+      
+      
+}
+	
+	
+	/**feign**/
+	@Autowired
+	private static HelloClient hClient;
+	
+	
+	public static String route() {
+		String result = hClient.hi();
+		return result;
+	}
+	
+	public static Police callRoute() {
+		Police result = hClient.call(1);
+		return result;
+	}
+
+}

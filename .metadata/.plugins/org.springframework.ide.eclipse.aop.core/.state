@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aop-reference-model>
-<aop-project name="demo"/>
+<aop-project name="fist-police-server"/>
 <aop-project name="fist-eurekaserver"/>
-<aop-project name="fist-person"/>
-<aop-project name="fist-police"/>
+<aop-project name="springNoWebFeginClient"/>
+<aop-project name="customFeginClient"/>
+<aop-project name="fist-person-client"/>
 </aop-reference-model>

@@ -1,0 +1,22 @@
+package com.noWebSpring;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
+
+@SpringBootApplication
+public class NoWebSpringApplication{
+
+//	public static void main(String[] args) {
+//		SpringApplication.run(NoWebSpringApplication.class, args);
+//	}
+	public static void main(String[] args) {
+      
+      SpringApplication app = new SpringApplication(NoWebSpringApplication.class);
+      app.setWebApplicationType(NoWebSpringApplication.NONE);
+      ConfigurableApplicationContext  appContext = app.run(args);
+      NoWebSpringApplication mainAPP = appContext.getBean(NoWebSpringApplication.class);
+//      mainAPP.runJob();
+}
+
+}

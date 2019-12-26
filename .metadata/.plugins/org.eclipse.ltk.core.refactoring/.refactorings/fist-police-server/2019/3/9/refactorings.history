@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;org.ygq.cloud&apos; to &apos;org.ygq.clou&apos;&#x0D;&#x0A;- Original project: &apos;fist-police&apos;&#x0D;&#x0A;- Original element: &apos;fist-police/src/main/java/org.ygq.cloud&apos;&#x0D;&#x0A;- Renamed element: &apos;fist-police/src/main/java/org.ygq.clou&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;org.ygq.cloud&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src\/main\/java&lt;org.ygq.cloud" name="org.ygq.clou" qualified="false" references="true" stamp="1551516580148" textual="false" version="1.0"/>
+</session>

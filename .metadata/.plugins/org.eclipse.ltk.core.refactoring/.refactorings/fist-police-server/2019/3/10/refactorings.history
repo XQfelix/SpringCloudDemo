@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;Police.java&apos; to &apos;fist-person/src/main/java/org.ygq.cloud&apos;&#x0D;&#x0A;- Original project: &apos;fist-police&apos;&#x0D;&#x0A;- Destination element: &apos;fist-person/src/main/java/org.ygq.cloud&apos;&#x0D;&#x0A;- Original element: &apos;org.ygq.clou.Police.java&apos;" description="Copy compilation unit" destination="=fist-person/src\/main\/java&lt;org.ygq.cloud" element1="/src\/main\/java&lt;org.ygq.clou{Police.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1552035130548" units="1" version="1.0"/>
+</session>
